@@ -13,7 +13,7 @@ import lb.listviewvariants.R;
 public class ContactsCursorAdapter extends SearchablePinnedHeaderCursorListViewAdapter {
 
 	public ContactsCursorAdapter(Context context) {
-		super(context, getQuery(context), false);
+		super(context, getQuery(context), 1, false);
 	}
 
 	private static Cursor getQuery(Context context) {

@@ -14,8 +14,8 @@ public abstract class IndexedPinnedHeaderCursorListViewAdapter extends BasePinne
 	private int _pinnedHeaderBackgroundColor;
 	private int _pinnedHeaderTextColor;
 
-	public IndexedPinnedHeaderCursorListViewAdapter(Context context, Cursor c, boolean autoRequery) {
-		super(context, c, autoRequery);
+	public IndexedPinnedHeaderCursorListViewAdapter(Context context, Cursor c, int columnIndex, boolean autoRequery) {
+		super(context, c, columnIndex, autoRequery);
 	}
 
 	public void setPinnedHeaderBackgroundColor(final int pinnedHeaderBackgroundColor) {

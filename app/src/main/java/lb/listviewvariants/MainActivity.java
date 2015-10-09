@@ -31,6 +31,7 @@ import lb.library.SearchablePinnedHeaderListViewAdapter;
 import lb.library.StringArrayAlphabetIndexer;
 import lb.listviewvariants.utils.CircularContactView;
 import lb.listviewvariants.utils.ContactImageUtil;
+import lb.listviewvariants.utils.ContactsCursorAdapter;
 import lb.listviewvariants.utils.ContactsQuery;
 import lb.listviewvariants.utils.ImageCache;
 import lb.listviewvariants.utils.async_task_thread_pool.AsyncTaskEx;
@@ -41,7 +42,7 @@ public class MainActivity extends ActionBarActivity
   {
   private LayoutInflater mInflater;
   private PinnedHeaderListView mListView;
-  private ContactsAdapter mAdapter;
+  private ContactsCursorAdapter mAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -64,7 +65,7 @@ public class MainActivity extends ActionBarActivity
       }
     });
     mListView=(PinnedHeaderListView)findViewById(android.R.id.list);
-    mAdapter=new ContactsAdapter(contacts);
+    mAdapter=new ContactsCursorAdapter(this);
 
     int pinnedHeaderBackgroundColor=getResources().getColor(getResIdFromAttribute(this,android.R.attr.colorBackground));
     mAdapter.setPinnedHeaderBackgroundColor(pinnedHeaderBackgroundColor);
@@ -72,7 +73,7 @@ public class MainActivity extends ActionBarActivity
     mListView.setPinnedHeaderView(mInflater.inflate(R.layout.pinned_header_listview_side_header,mListView,false));
     mListView.setAdapter(mAdapter);
     mListView.setOnScrollListener(mAdapter);
-    mListView.setEnableHeaderTransparencyChanges(false);
+    mListView.setEnableHeaderTransparencyChanges(true);
     //    mAdapter.getFilter().filter(mQueryText,new FilterListener() ...
     //You can also perform operations on selected item by using :
     //    mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() ...
@@ -149,7 +150,7 @@ public class MainActivity extends ActionBarActivity
   protected void onDestroy()
     {
     super.onDestroy();
-    mAdapter.mAsyncTaskThreadPool.cancelAllTasks(true);
+    //mAdapter.mAsyncTaskThreadPool.cancelAllTasks(true);
     }
 
   private static class Contact

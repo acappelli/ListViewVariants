@@ -16,9 +16,9 @@ public abstract class BasePinnedHeaderCursorListViewAdapter extends CursorAdapte
 	private SectionIndexer mSectionIndexer;
 	private boolean mHeaderViewVisible = true;
 
-	public BasePinnedHeaderCursorListViewAdapter(Context context, Cursor c, boolean autoRequery) {
+	public BasePinnedHeaderCursorListViewAdapter(Context context, Cursor c, int columnIndex, boolean autoRequery) {
 		super(context, c, autoRequery);
-		setSectionIndexer(new AlphabetIndexer(c, 1, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+		setSectionIndexer(new AlphabetIndexer(c, columnIndex, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
 	}
 
 	public void setSectionIndexer(final SectionIndexer sectionIndexer) {

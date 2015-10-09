@@ -8,8 +8,8 @@ import android.widget.SectionIndexer;
 
 public abstract class SearchablePinnedHeaderCursorListViewAdapter extends IndexedPinnedHeaderCursorListViewAdapter {
 
-	public SearchablePinnedHeaderCursorListViewAdapter(Context context, Cursor c, boolean autoRequery) {
-		super(context, c, autoRequery);
+	public SearchablePinnedHeaderCursorListViewAdapter(Context context, Cursor c, int columnIndex, boolean autoRequery) {
+		super(context, c, columnIndex, autoRequery);
 
 		setFilterQueryProvider(new FilterQueryProvider() {
 			@Override
