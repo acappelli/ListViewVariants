@@ -18,7 +18,7 @@ public abstract class BasePinnedHeaderCursorListViewAdapter extends CursorAdapte
 
 	public BasePinnedHeaderCursorListViewAdapter(Context context, Cursor c, int columnIndex, boolean autoRequery) {
 		super(context, c, autoRequery);
-		setSectionIndexer(new AlphabetIndexer(c, columnIndex, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+		setSectionIndexer(new AlphabetIndexer(c, columnIndex, "#ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
 	}
 
 	public void setSectionIndexer(final SectionIndexer sectionIndexer) {
